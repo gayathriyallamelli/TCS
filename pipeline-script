@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    environment {
+        PATH = "/usr/bin:$PATH"
+    }
+
+    stages {
+        stage('GitCheckout') {
+            steps {
+                git credentialsId: 'gitcredentials', url: 'https://github.com/banalanidish/hello-world-3.git'
+            }
+        }
+        stage("build code"){
+            steps{
+              sh "mvn clean install"
+            }
+        }
+      /*  stage("deploy"){
+            steps{
+              sshagent(['tomcatuser']) {
+                 sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war ubuntu@13.36.236.46:/opt/tomcat/webapps"
+                 
+                }
+         } 
+         } */
+    }
+}
