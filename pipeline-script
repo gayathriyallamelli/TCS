@@ -10,11 +10,11 @@ pipeline {
                 git credentialsId: 'gitcredentials', url: 'https://github.com/banalanidish/hello-world-3.git'
             }
         }
-        /*stage("build code"){
+        stage("build code"){
             steps{
               sh "mvn clean install"
             }
-        }*/
+        }
       /*  stage("deploy"){
             steps{
               sshagent(['tomcatuser']) {
