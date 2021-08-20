@@ -2,6 +2,6 @@
 # hcl
 #cgi
 
-pipline test
+pipline
 
 
